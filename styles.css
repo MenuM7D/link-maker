@@ -1,0 +1,109 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    background-color: #f0f0f0;
+    background-image: url('https://i.ibb.co/7rKtymx/copilot-image-1733326828167.jpg'); /* رابط الصورة الجديدة */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.upload-btn, .copy-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #4B6BFB, #1E3A8A);
+    color: white;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.upload-btn:hover, .copy-btn:hover {
+    background: linear-gradient(45deg, #6C8DFF, #2A4D9C);
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.loading-message {
+    font-size: 16px;
+    color: #333;
+    margin-top: 20px;
+}
+
+.spinner {
+    margin-left: 10px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    animation: spin 2s linear infinite;
+}
+
+/* تحريك العنصر الدوار */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.links-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.links-container a {
+    display: block;
+    font-size: 14px;
+    word-wrap: break-word;
+    color: #1E3A8A; /* لون الروابط الأزرق */
+    text-decoration: none;
+    padding: 8px;
+    background: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.links-container a:hover {
+    background: #e2e2e2;
+}

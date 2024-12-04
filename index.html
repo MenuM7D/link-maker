@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رفع الصور وتحويلها إلى روابط</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>رفع الصور وتحويلها إلى روابط</h1>
+        
+        <input type="file" id="fileInput" multiple accept="image/*">
+        <label for="fileInput" class="upload-btn">اختيار الصور</label>
+        
+        <!-- سيتم عرض رسالة جاري التحميل وعلامة التحميل هنا -->
+        <div id="loadingMessage" class="loading-message" style="display:none;">
+            جاري التحميل... <div class="spinner"></div>
+        </div>
+
+        <!-- عرض الروابط هنا -->
+        <div id="linksContainer" class="links-container"></div>
+        
+        <!-- زر نسخ الروابط -->
+        <button id="copyLinksBtn" class="copy-btn" style="display:none;">نسخ جميع الروابط</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
