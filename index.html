@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>رفع الصور وتحويلها إلى روابط</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#007bff">
 </head>
 <body>
     <div class="container">
@@ -25,5 +27,14 @@
         <button id="copyLinksBtn" class="copy-btn" style="display:none;">نسخ جميع الروابط</button>
     </div>
     <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+            .then(() => console.log('Service Worker مسجل بنجاح'))
+            .catch(err => console.error('فشل التسجيل:', err));
+    });
+        }
+            <script>
 </body>
 </html>
