@@ -1,0 +1,21 @@
+{
+  "name": "link maker",
+  "short_name": "l&m",
+  "description": "محول الصور لروابط الابسط والامثل",
+  "start_url": "https://alphaproject-self.vercel.app/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#007bff",
+  "icons": [
+    {
+      "src": "icon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icon2.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
