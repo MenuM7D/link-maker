@@ -103,17 +103,18 @@ button span {
     background: linear-gradient(45deg, #5a3d8e, #4a3673); /* لون بنفسجي داكن عند التحويم */
 }
 
-/* منطقة عرض الروابط */
+/* منطقة عرض الروابط - تصميم جديد */
 .links-container {
     margin-top: 15px;
     padding: 15px;
     background-color: #fff;
-    border-radius: 8px;
+    border-radius: 12px; /* زيادة نصف القطر لجعله أكثر أناقة */
     max-height: 250px;
     overflow-y: auto;
     text-align: left;
-    border: 1px solid #ddd;
+    border: 1px solid #e0e0e0; /* لون حدود أفتح */
     transition: background-color 0.3s, border-color 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* إضافة ظل ناعم */
 }
 
 .links-container a {
@@ -121,15 +122,41 @@ button span {
     font-size: 14px;
     color: #007bff;
     text-decoration: none;
-    padding: 5px;
+    padding: 10px; /* زيادة الحشوة لجعل الروابط أكثر وضوحًا */
     background: #f9f9f9;
-    border-radius: 6px;
-    margin-bottom: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* زيادة نصف القطر */
+    margin-bottom: 8px; /* زيادة التباعد بين الروابط */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* ظل خفيف */
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    word-break: break-all; /* منع النص من التخطي */
 }
 
 .links-container a:hover {
-    background: #e8f0fe;
+    background: #e8f0fe; /* لون خلفية عند التحويم */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* زيادة الظل عند التحويم */
+    transform: translateY(-2px); /* تأثير رفع خفيف */
+}
+
+.links-container a:active {
+    transform: translateY(0); /* إعادة الرابط إلى مكانه عند النقر */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* إعادة الظل إلى حالته الأصلية */
+}
+
+/* تحسينات للوضع الداكن */
+.dark-mode .links-container {
+    background-color: #1e1e1e;
+    border-color: #444;
+}
+
+.dark-mode .links-container a {
+    background-color: #252525;
+    color: #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* ظل خفيف في الوضع الداكن */
+}
+
+.dark-mode .links-container a:hover {
+    background-color: #333; /* لون خلفية أغمق عند التحويم */
+    color: #007bff; /* تغيير لون النص عند التحويم */
 }
 
 /* زر التبديل بين الوضع الليلي والنهاري */
