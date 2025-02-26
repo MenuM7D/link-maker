@@ -9,6 +9,8 @@ const progressBar = document.getElementById('progressBar');
 const progress = document.getElementById('progress');
 const linksContainer = document.getElementById('linksContainer');
 const copyLinksBtn = document.getElementById('copyLinksBtn');
+const clearLinksBtn = document.getElementById('clearLinksBtn');
+const downloadLinksBtn = document.getElementById('downloadLinksBtn');
 const toast = document.getElementById('toast');
 
 // النقر على منطقة السحب والإفلات لفتح نافذة اختيار الملفات
@@ -81,7 +83,11 @@ async function handleFiles(files) {
     });
 
     progressBar.style.display = 'none';
-    if (links.length > 0) copyLinksBtn.style.display = 'inline-block';
+    if (links.length > 0) {
+        copyLinksBtn.style.display = 'inline-block';
+        clearLinksBtn.style.display = 'inline-block';
+        downloadLinksBtn.style.display = 'inline-block';
+    }
 }
 
 // نسخ جميع الروابط
@@ -90,6 +96,28 @@ copyLinksBtn.addEventListener('click', () => {
     navigator.clipboard.writeText(links.join('\n'))
         .then(() => showToast('تم نسخ الروابط بنجاح!'))
         .catch(() => showToast('فشل نسخ الروابط.'));
+});
+
+// مسح جميع الروابط
+clearLinksBtn.addEventListener('click', () => {
+    linksContainer.innerHTML = '';
+    clearLinksBtn.style.display = 'none';
+    copyLinksBtn.style.display = 'none';
+    downloadLinksBtn.style.display = 'none';
+    showToast('تم مسح جميع الروابط.');
+});
+
+// تنزيل جميع الروابط
+downloadLinksBtn.addEventListener('click', () => {
+    const links = Array.from(document.querySelectorAll('#linksContainer a')).map(a => a.href);
+    const blob = new Blob([links.join('\n')], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'links.txt';
+    a.click();
+    URL.revokeObjectURL(url);
+    showToast('تم تنزيل الروابط بنجاح!');
 });
 
 // تبديل الوضع
@@ -111,8 +139,8 @@ if (localStorage.getItem('theme') === 'dark') {
 // إظهار إشعارات
 function showToast(message) {
     toast.textContent = message;
-    toast.style.display = 'block';
+    toast.classList.add('show');
     setTimeout(() => {
-        toast.style.display = 'none';
+        toast.classList.remove('show');
     }, 3000);
 }
