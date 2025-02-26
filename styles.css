@@ -36,9 +36,13 @@ h1 {
     color: inherit;
 }
 
-.upload-btn, .copy-btn, .clear-btn, .download-btn {
-    display: inline-block;
+/* زر رفع الملفات */
+.upload-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 12px 25px;
+    background: linear-gradient(45deg, #4a90e2, #357abd); /* لون أزرق فاتح */
     color: white;
     font-size: 16px;
     border-radius: 6px;
@@ -46,16 +50,26 @@ h1 {
     transition: 0.3s;
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
     margin: 10px;
-}
-
-.upload-btn {
-    background: linear-gradient(45deg, #007bff, #0056b3);
+    border: none;
+    outline: none;
 }
 
 .upload-btn:hover {
-    background: linear-gradient(45deg, #0056b3, #004494);
+    background: linear-gradient(45deg, #357abd, #2a5f8a); /* لون أزرق داكن عند التحويم */
+    transform: translateY(-2px); /* تأثير رفع خفيف */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* زيادة الظل */
 }
 
+.upload-btn:active {
+    transform: translateY(0); /* إعادة الزر إلى مكانه عند النقر */
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2); /* إعادة الظل إلى حالته الأصلية */
+}
+
+.upload-btn span {
+    margin-right: 8px; /* تباعد بين الأيقونة والنص */
+}
+
+/* زر نسخ الروابط */
 .copy-btn {
     background: linear-gradient(45deg, #28a745, #218838);
 }
@@ -64,6 +78,7 @@ h1 {
     background: linear-gradient(45deg, #218838, #1e7e34);
 }
 
+/* زر مسح الكل */
 .clear-btn {
     background: linear-gradient(45deg, #ff4d4d, #cc0000);
 }
@@ -72,6 +87,7 @@ h1 {
     background: linear-gradient(45deg, #cc0000, #990000);
 }
 
+/* زر تنزيل الروابط */
 .download-btn {
     background: linear-gradient(45deg, #6f42c1, #5a3d8e);
 }
@@ -80,6 +96,7 @@ h1 {
     background: linear-gradient(45deg, #5a3d8e, #4a3673);
 }
 
+/* منطقة عرض الروابط */
 .links-container {
     margin-top: 15px;
     padding: 15px;
@@ -151,6 +168,14 @@ h1 {
 
 .dark-mode .theme-toggle {
     background-color: #f39c12;
+}
+
+.dark-mode .upload-btn {
+    background: linear-gradient(45deg, #6f42c1, #5a3d8e); /* لون بنفسجي في الوضع الداكن */
+}
+
+.dark-mode .upload-btn:hover {
+    background: linear-gradient(45deg, #5a3d8e, #4a3673); /* لون بنفسجي داكن عند التحويم */
 }
 
 /* توقيع الحقوق */
