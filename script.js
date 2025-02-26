@@ -1,93 +1,39 @@
-const API_URL = 'https://api.imgbb.com/1/upload';
-const API_KEY = '2cec769c472e139124ffbf8154af63a1'; // استخدم مفتاح API الخاص بك
+const API_KEY = 'public_W23MT3P6GELTr7r1BpMirXPMwXW6'; // استبدل بمفتاح API الخاص بك
 
 // عناصر DOM
-const dropArea = document.getElementById('dropArea');
-const fileInput = document.getElementById('fileInput');
-const progressBar = document.getElementById('progressBar');
-const progress = document.getElementById('progress');
+const uploadBtn = document.getElementById('uploadBtn');
 const linksContainer = document.getElementById('linksContainer');
 const copyLinksBtn = document.getElementById('copyLinksBtn');
 const clearLinksBtn = document.getElementById('clearLinksBtn');
 const downloadLinksBtn = document.getElementById('downloadLinksBtn');
 const toast = document.getElementById('toast');
 
-// النقر على منطقة السحب والإفلات لفتح نافذة اختيار الملفات
-dropArea.addEventListener('click', () => {
-    fileInput.click();
-});
+// تهيئة Upload Widget
+const options = {
+    apiKey: API_KEY, // مفتاح API الخاص بك
+    maxFileCount: 50, // الحد الأقصى لعدد الملفات
+};
 
-// سحب وإفلات الصور
-dropArea.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    dropArea.style.borderColor = '#0056b3';
-});
+// فتح Upload Widget عند النقر على زر الرفع
+uploadBtn.addEventListener('click', () => {
+    Bytescale.UploadWidget.open(options).then(
+        files => {
+            const fileUrls = files.map(x => x.fileUrl);
+            fileUrls.forEach(url => {
+                linksContainer.innerHTML += `<a href="${url}" target="_blank">${url}</a>`;
+            });
 
-dropArea.addEventListener('dragleave', () => {
-    dropArea.style.borderColor = '#007bff';
-});
-
-dropArea.addEventListener('drop', (e) => {
-    e.preventDefault();
-    dropArea.style.borderColor = '#007bff';
-    fileInput.files = e.dataTransfer.files;
-    handleFiles(fileInput.files);
-});
-
-// اختيار الصور
-fileInput.addEventListener('change', () => {
-    handleFiles(fileInput.files);
-});
-
-// تحميل الصور
-async function handleFiles(files) {
-    if (files.length > 50) {
-        showToast('يرجى رفع 50 صورة فقط في نفس الوقت.');
-        return;
-    }
-
-    linksContainer.innerHTML = '';
-    progressBar.style.display = 'block';
-    progress.style.width = '0%';
-
-    const links = [];
-    let uploadedCount = 0;
-
-    for (let file of files) {
-        if (!file.type.startsWith('image/')) {
-            showToast('الرجاء رفع صور فقط.');
-            continue;
-        }
-
-        const formData = new FormData();
-        formData.append('image', file);
-        formData.append('key', API_KEY);
-
-        try {
-            const response = await fetch(API_URL, { method: 'POST', body: formData });
-            const data = await response.json();
-            if (data.success) {
-                links.push(data.data.url);
+            if (fileUrls.length > 0) {
+                copyLinksBtn.style.display = 'inline-block';
+                clearLinksBtn.style.display = 'inline-block';
+                downloadLinksBtn.style.display = 'inline-block';
             }
-        } catch {
-            showToast('حدث خطأ أثناء الاتصال بالخادم.');
+        },
+        error => {
+            showToast('حدث خطأ أثناء الرفع: ' + error.message);
         }
-
-        uploadedCount++;
-        progress.style.width = `${(uploadedCount / files.length) * 100}%`;
-    }
-
-    links.forEach(link => {
-        linksContainer.innerHTML += `<a href="${link}" target="_blank">${link}</a>`;
-    });
-
-    progressBar.style.display = 'none';
-    if (links.length > 0) {
-        copyLinksBtn.style.display = 'inline-block';
-        clearLinksBtn.style.display = 'inline-block';
-        downloadLinksBtn.style.display = 'inline-block';
-    }
-}
+    );
+});
 
 // نسخ جميع الروابط
 copyLinksBtn.addEventListener('click', () => {
@@ -109,7 +55,7 @@ clearLinksBtn.addEventListener('click', () => {
 // تنزيل جميع الروابط
 downloadLinksBtn.addEventListener('click', () => {
     const links = Array.from(document.querySelectorAll('#linksContainer a')).map(a => a.href);
-    const defaultName = "روابط_الصور"; // الاسم الافتراضي للملف
+    const defaultName = "روابط_الملفات"; // الاسم الافتراضي للملف
 
     // نافذة منبثقة لطلب اسم الملف من المستخدم
     const fileName = prompt('الرجاء إدخال اسم الملف:', defaultName);
