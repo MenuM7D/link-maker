@@ -20,7 +20,7 @@
   "background_color": "#000000",
   "display": "standalone",
   "scope": "/",
-  "theme_color": "#007bff",
+  "theme_color": "#000000",
   "shortcuts": [
     {
       "name": "L&M",
