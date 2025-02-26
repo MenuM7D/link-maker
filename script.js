@@ -1,4 +1,3 @@
-// script.js
 const API_URL = '/api/upload'; // رابط الوظيفة الخادمية على Vercel
 
 // عناصر DOM
@@ -151,4 +150,4 @@ function showToast(message) {
     setTimeout(() => {
         toast.classList.remove('show');
     }, 3000);
-                      }
+}
