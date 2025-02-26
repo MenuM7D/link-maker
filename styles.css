@@ -13,7 +13,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     transition: background-color 0.3s, color 0.3s;
 }
@@ -27,6 +27,7 @@ body {
     width: 90%;
     max-width: 500px;
     transition: background-color 0.3s;
+    margin-bottom: 80px; /* تباعد أسفل المحتوى لتجنب التداخل مع التذييل */
 }
 
 h1 {
