@@ -1,21 +1,39 @@
 {
-  "name": "link maker",
-  "short_name": "l&m",
-  "description": "محول الصور لروابط الابسط والامثل",
-  "start_url": "https://m7d-link-maker.vercel.app",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#007bff",
+  "short_name": "L&M",
+  "name": "Link maker",
+  "description": "قم بتحويل صورك لروابط مباشرة بسهوله وبسلاسة تامة",
   "icons": [
     {
-      "src": "icon.png",
+      "src": "https://cdn-icons-png.flaticon.com/512/123/123403.png", // أيقونة 192x192
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
-      "src": "icon2.png",
+      "src": "https://cdn-icons-png.flaticon.com/512/123/123403.png", // أيقونة 512x512
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#007bff",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#007bff",
+  "shortcuts": [
+    {
+      "name": "L&M",
+      "short_name": "Link maker",
+      "description": "قم بتحويل صورك لروابط مباشرة بسهوله وبسلاسة تامة",
+      "url": "https://m7d-link-maker.vercel.app/",
+      "icons": [
+        {
+          "src": "https://cdn-icons-png.flaticon.com/512/123/123403.png", // أيقونة الاختصار
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
     }
   ]
 }
