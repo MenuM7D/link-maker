@@ -4,13 +4,13 @@
   "description": "قم بتحويل صورك لروابط مباشرة بسهوله وبسلاسة تامة",
   "icons": [
     {
-      "src": "https://cdn-icons-png.flaticon.com/512/123/123403.png", // أيقونة 192x192
+      "src": "https://i.ibb.co/C3m3BWgC/1000013554.png", // أيقونة 192x192
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "any maskable"
     },
     {
-      "src": "https://cdn-icons-png.flaticon.com/512/123/123403.png", // أيقونة 512x512
+      "src": "https://i.ibb.co/Zz4hzhpB/1000013555.jpg", // أيقونة 512x512
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any maskable"
@@ -29,7 +29,7 @@
       "url": "https://m7d-link-maker.vercel.app/",
       "icons": [
         {
-          "src": "https://cdn-icons-png.flaticon.com/512/123/123403.png", // أيقونة الاختصار
+          "src": "https://i.ibb.co/CynjkWq/1000013545.png", // أيقونة الاختصار
           "sizes": "96x96",
           "type": "image/png"
         }
