@@ -72,10 +72,9 @@ h1 {
     transition: width 0.3s;
 }
 
-.upload-btn, .copy-btn {
+.upload-btn, .copy-btn, .clear-btn, .download-btn {
     display: inline-block;
     padding: 12px 25px;
-    background: linear-gradient(45deg, #007bff, #0056b3);
     color: white;
     font-size: 16px;
     border-radius: 6px;
@@ -85,8 +84,28 @@ h1 {
     margin: 10px;
 }
 
-.upload-btn:hover, .copy-btn:hover {
+.copy-btn {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+}
+
+.copy-btn:hover {
     background: linear-gradient(45deg, #0056b3, #004494);
+}
+
+.clear-btn {
+    background: linear-gradient(45deg, #ff4d4d, #cc0000);
+}
+
+.clear-btn:hover {
+    background: linear-gradient(45deg, #cc0000, #990000);
+}
+
+.download-btn {
+    background: linear-gradient(45deg, #28a745, #218838);
+}
+
+.download-btn:hover {
+    background: linear-gradient(45deg, #218838, #1e7e34);
 }
 
 input[type="file"] {
@@ -156,6 +175,7 @@ input[type="file"] {
 
 .dark-mode .container {
     background-color: #1e1e1e;
+    border: 1px solid #444;
 }
 
 .dark-mode .links-container {
@@ -207,4 +227,13 @@ input[type="file"] {
     font-size: 14px;
     z-index: 1000;
     display: none;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    transform: translateY(20px);
+}
+
+.toast.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
 }
