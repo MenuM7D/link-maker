@@ -1,6 +1,5 @@
 // script.js
-const API_URL = 'https://api.imgbb.com/1/upload';
-const API_KEY = '2cec769c472e139124ffbf8154af63a1'; // استخدم مفتاح API الخاص بك
+const API_URL = '/api/upload'; // رابط الوظيفة الخادمية على Vercel
 
 // عناصر DOM
 const dropArea = document.getElementById('dropArea');
@@ -43,7 +42,7 @@ fileInput.addEventListener('change', () => {
 // تحميل الصور
 async function handleFiles(files) {
     if (files.length > 50) {
-        showToast('يرجى رفع 50 صورة فقط في نفس الوقت.');
+        showToast('يرجى رفع 50 ملف فقط في نفس الوقت.');
         return;
     }
 
@@ -55,23 +54,23 @@ async function handleFiles(files) {
     let uploadedCount = 0;
 
     for (let file of files) {
-        if (!file.type.startsWith('image/')) {
-            showToast('الرجاء رفع صور فقط.');
-            continue;
-        }
-
         const formData = new FormData();
-        formData.append('image', file);
-        formData.append('key', API_KEY);
+        formData.append('file', file);
 
         try {
-            const response = await fetch(API_URL, { method: 'POST', body: formData });
+            const response = await fetch(API_URL, {
+                method: 'POST',
+                body: formData,
+            });
+
             const data = await response.json();
-            if (data.success) {
-                links.push(data.data.url);
+            if (data.link) {
+                links.push(data.link);
+            } else {
+                throw new Error(data.error || 'حدث خطأ أثناء الرفع.');
             }
-        } catch {
-            showToast('حدث خطأ أثناء الاتصال بالخادم.');
+        } catch (error) {
+            showToast(error.message);
         }
 
         uploadedCount++;
@@ -110,7 +109,7 @@ clearLinksBtn.addEventListener('click', () => {
 // تنزيل جميع الروابط
 downloadLinksBtn.addEventListener('click', () => {
     const links = Array.from(document.querySelectorAll('#linksContainer a')).map(a => a.href);
-    const defaultName = "روابط_الصور"; // الاسم الافتراضي للملف
+    const defaultName = "روابط_الملفات"; // الاسم الافتراضي للملف
 
     // نافذة منبثقة لطلب اسم الملف من المستخدم
     const fileName = prompt('الرجاء إدخال اسم الملف:', defaultName);
@@ -152,4 +151,4 @@ function showToast(message) {
     setTimeout(() => {
         toast.classList.remove('show');
     }, 3000);
-}
+                      }
