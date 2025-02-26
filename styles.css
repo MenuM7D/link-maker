@@ -36,14 +36,12 @@ h1 {
     color: inherit;
 }
 
-/* زر رفع الملفات */
-.upload-btn {
+/* تصميم عام لجميع الأزرار */
+button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 12px 25px;
-    background: linear-gradient(45deg, #4a90e2, #357abd); /* لون أزرق فاتح */
-    color: white;
     font-size: 16px;
     border-radius: 6px;
     cursor: pointer;
@@ -52,48 +50,57 @@ h1 {
     margin: 10px;
     border: none;
     outline: none;
+    color: white;
 }
 
-.upload-btn:hover {
-    background: linear-gradient(45deg, #357abd, #2a5f8a); /* لون أزرق داكن عند التحويم */
+button:hover {
     transform: translateY(-2px); /* تأثير رفع خفيف */
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* زيادة الظل */
 }
 
-.upload-btn:active {
+button:active {
     transform: translateY(0); /* إعادة الزر إلى مكانه عند النقر */
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2); /* إعادة الظل إلى حالته الأصلية */
 }
 
-.upload-btn span {
+button span {
     margin-right: 8px; /* تباعد بين الأيقونة والنص */
+}
+
+/* زر رفع الملفات */
+.upload-btn {
+    background: linear-gradient(45deg, #4a90e2, #357abd); /* لون أزرق فاتح */
+}
+
+.upload-btn:hover {
+    background: linear-gradient(45deg, #357abd, #2a5f8a); /* لون أزرق داكن عند التحويم */
 }
 
 /* زر نسخ الروابط */
 .copy-btn {
-    background: linear-gradient(45deg, #28a745, #218838);
+    background: linear-gradient(45deg, #28a745, #218838); /* لون أخضر */
 }
 
 .copy-btn:hover {
-    background: linear-gradient(45deg, #218838, #1e7e34);
+    background: linear-gradient(45deg, #218838, #1e7e34); /* لون أخضر داكن عند التحويم */
 }
 
 /* زر مسح الكل */
 .clear-btn {
-    background: linear-gradient(45deg, #ff4d4d, #cc0000);
+    background: linear-gradient(45deg, #ff4d4d, #cc0000); /* لون أحمر */
 }
 
 .clear-btn:hover {
-    background: linear-gradient(45deg, #cc0000, #990000);
+    background: linear-gradient(45deg, #cc0000, #990000); /* لون أحمر داكن عند التحويم */
 }
 
 /* زر تنزيل الروابط */
 .download-btn {
-    background: linear-gradient(45deg, #6f42c1, #5a3d8e);
+    background: linear-gradient(45deg, #6f42c1, #5a3d8e); /* لون بنفسجي */
 }
 
 .download-btn:hover {
-    background: linear-gradient(45deg, #5a3d8e, #4a3673);
+    background: linear-gradient(45deg, #5a3d8e, #4a3673); /* لون بنفسجي داكن عند التحويم */
 }
 
 /* منطقة عرض الروابط */
@@ -175,6 +182,30 @@ h1 {
 }
 
 .dark-mode .upload-btn:hover {
+    background: linear-gradient(45deg, #5a3d8e, #4a3673); /* لون بنفسجي داكن عند التحويم */
+}
+
+.dark-mode .copy-btn {
+    background: linear-gradient(45deg, #28a745, #218838); /* لون أخضر في الوضع الداكن */
+}
+
+.dark-mode .copy-btn:hover {
+    background: linear-gradient(45deg, #218838, #1e7e34); /* لون أخضر داكن عند التحويم */
+}
+
+.dark-mode .clear-btn {
+    background: linear-gradient(45deg, #ff4d4d, #cc0000); /* لون أحمر في الوضع الداكن */
+}
+
+.dark-mode .clear-btn:hover {
+    background: linear-gradient(45deg, #cc0000, #990000); /* لون أحمر داكن عند التحويم */
+}
+
+.dark-mode .download-btn {
+    background: linear-gradient(45deg, #6f42c1, #5a3d8e); /* لون بنفسجي في الوضع الداكن */
+}
+
+.dark-mode .download-btn:hover {
     background: linear-gradient(45deg, #5a3d8e, #4a3673); /* لون بنفسجي داكن عند التحويم */
 }
 
