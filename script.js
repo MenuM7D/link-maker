@@ -110,14 +110,23 @@ clearLinksBtn.addEventListener('click', () => {
 // تنزيل جميع الروابط
 downloadLinksBtn.addEventListener('click', () => {
     const links = Array.from(document.querySelectorAll('#linksContainer a')).map(a => a.href);
-    const blob = new Blob([links.join('\n')], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'links.txt';
-    a.click();
-    URL.revokeObjectURL(url);
-    showToast('تم تنزيل الروابط بنجاح!');
+    const defaultName = "روابط_الصور"; // الاسم الافتراضي للملف
+
+    // نافذة منبثقة لطلب اسم الملف من المستخدم
+    const fileName = prompt('الرجاء إدخال اسم الملف:', defaultName);
+
+    if (fileName) { // إذا أدخل المستخدم اسمًا
+        const blob = new Blob([links.join('\n')], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${fileName}.txt`; // إضافة الامتداد .txt تلقائيًا
+        a.click();
+        URL.revokeObjectURL(url);
+        showToast('تم تنزيل الروابط بنجاح!');
+    } else {
+        showToast('تم إلغاء عملية التنزيل.');
+    }
 });
 
 // تبديل الوضع
