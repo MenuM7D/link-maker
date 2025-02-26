@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/x-icon" href="https://i.ibb.co/PG8FFgGD/1000013743.jpg">
-    <meta name="description" content="موقع لتحويل الصور إلى روابط مباشرة بسهولة وسلاسة. قم برفع صورك واحصل على روابط مباشرة في ثوانٍ!">
+    <meta name="description" content="موقع تحويل الصور لروابط مباشره الاسلس والامثل للأستعمال">
     <meta name="image" content="https://i.ibb.co/tpGqkjKr/1000013534.jpg">
 
     <!-- Open Graph meta tags for social media platforms (including WhatsApp) -->
@@ -22,6 +22,9 @@
     <meta name="twitter:image" content="https://i.ibb.co/tpGqkjKr/1000013534.jpg">
     <meta name="description" content="موقع تحويل الصور لروابط الاسهل والاسلس">
     <meta name="keywords" content="photo to link,link maker,covert photo to link,رفع صور, تحويل صور إلى روابط, روابط مباشرة">
+
+    <!-- مكتبة Upload Widget -->
+    <script src="https://js.bytescale.com/upload-widget/v4"></script>
 </head>
 <body>
     <!-- زر التبديل بين الوضع الليلي والنهاري -->
@@ -32,27 +35,14 @@
     <div class="container">
         <h1>مـحـول الـصـور لـروابــط مـبـاشـرة</h1>
 
-        <!-- منطقة سحب وإفلات الصور -->
-        <div id="dropArea" class="drop-area">
-            <p>اسحب وأفلت الصور هنا أو انقر لاختيارها</p>
-            <input type="file" id="fileInput" multiple accept="image/*">
-        </div>
-
-        <!-- شريط التقدم -->
-        <div id="progressBar" class="progress-bar" style="display: none;">
-            <div id="progress" class="progress"></div>
-        </div>
-
-        <!-- رسالة التحميل -->
-        <div id="loadingMessage" class="loading-message" style="display:none;">
-            جاري التحميل... <div class="spinner"></div>
-        </div>
+        <!-- زر رفع الملفات -->
+        <button id="uploadBtn" class="upload-btn">📤 رفع الملفات</button>
 
         <!-- منطقة عرض الروابط -->
         <div id="linksContainer" class="links-container"></div>
 
         <!-- زر نسخ الروابط -->
-        <button id="copyLinksBtn" class="copy-btn" style="display:none;" aria-label="نسخ جميع الروابط">📋 نسخ جميع الروابط</button>
+        <button id="copyLinksBtn" class="copy-btn" style="display:none;">📋 نسخ جميع الروابط</button>
 
         <!-- زر مسح الكل -->
         <button id="clearLinksBtn" class="clear-btn" style="display:none;">🗑️ مسح الكل</button>
@@ -72,15 +62,5 @@
     <div id="toast" class="toast"></div>
 
     <script src="script.js"></script>
-
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then(() => console.log('Service Worker مسجل بنجاح'))
-                    .catch(err => console.error('فشل التسجيل:', err));
-            });
-        }
-    </script>
 </body>
 </html>
