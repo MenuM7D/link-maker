@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/x-icon" href="https://i.ibb.co/PG8FFgGD/1000013743.jpg">
-    <meta name="description" content="موقع تحويل الصور لروابط مباشره الاسلس والامثل للأستعمال">
+    <meta name="description" content="موقع لتحويل الصور إلى روابط مباشرة بسهولة وسلاسة. قم برفع صورك واحصل على روابط مباشرة في ثوانٍ!">
     <meta name="image" content="https://i.ibb.co/tpGqkjKr/1000013534.jpg">
 
     <!-- Open Graph meta tags for social media platforms (including WhatsApp) -->
@@ -52,15 +52,21 @@
         <div id="linksContainer" class="links-container"></div>
 
         <!-- زر نسخ الروابط -->
-        <button id="copyLinksBtn" class="copy-btn" style="display:none;">📋 نسخ جميع الروابط</button>
+        <button id="copyLinksBtn" class="copy-btn" style="display:none;" aria-label="نسخ جميع الروابط">📋 نسخ جميع الروابط</button>
+
+        <!-- زر مسح الكل -->
+        <button id="clearLinksBtn" class="clear-btn" style="display:none;">🗑️ مسح الكل</button>
+
+        <!-- زر تنزيل الروابط -->
+        <button id="downloadLinksBtn" class="download-btn" style="display:none;">⬇️ تنزيل الروابط</button>
     </div>
 
-<!-- توقيع الحقوق في الأسفل -->
-<footer class="footer">
-    <div class="footer-content">
-         <span>All RIGHTS RESERVED TO M7D</span> &copy; 2025
-    </div>
-</footer>
+    <!-- توقيع الحقوق في الأسفل -->
+    <footer class="footer">
+        <div class="footer-content">
+            <span>All RIGHTS RESERVED TO M7D</span> &copy; 2025
+        </div>
+    </footer>
     
     <!-- إشعارات تفاعلية -->
     <div id="toast" class="toast"></div>
