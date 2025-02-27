@@ -26,7 +26,7 @@
       "name": "L&M",
       "short_name": "Link maker",
       "description": "قم بتحويل صورك لروابط مباشرة بسهوله وبسلاسة تامة",
-      "url": "https://m7d-link-maker.vercel.app/",
+      "url": "https://link-maker-beta.vercel.app",
       "icons": [
         {
           "src": "https://i.ibb.co/CynjkWq/1000013545.png", // أيقونة الاختصار
